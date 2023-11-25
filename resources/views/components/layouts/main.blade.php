@@ -1,11 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist Page</title>
+    <title>{{ $title ?? "Cool Web App" }}</title>
     <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet" />
+    <style>
+
+    </style>
+
 </head>
 
 <body>
