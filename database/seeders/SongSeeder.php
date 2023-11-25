@@ -15,20 +15,20 @@ class SongSeeder extends Seeder
     {
         Song::create([
             'artist' => 'Eminem',
-            'title' => 'Stan',
+            'title' => 'Stan'
         ]);
 
         Song::create([
             'artist' => 'A P Dhillon',
-            'title' => 'With You',
+            'title' => 'With You'
         ]);
         Song::create([
             'artist' => 'Divyansh',
-            'title' => 'song3',
+            'title' => 'song3'
         ]);
         Song::create([
             'artist' => 'Ansh',
-            'title' => 'With',
+            'title' => 'With'
         ]);
     }
 }

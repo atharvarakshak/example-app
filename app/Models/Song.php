@@ -10,7 +10,9 @@ class Song extends Model
 {
     use HasFactory;
     // Add fillable fields corresponding to database columns
-    protected $fillable=['title', 'artist'];
+    protected $fillable=['title', 'artist', 'model'];
+
+    protected $attributes = ['model' => 'default'];
 
     // Getter function for title field
     public function getTitle(){
