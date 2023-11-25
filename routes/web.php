@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Practicals\song;
+//use Practicals\song;
+use App\Models\Song;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,27 +25,36 @@ Route::get('/veggies', function () {
 Route::get('/veggies/{veggieName}', function (string $veggieName){
 	return $veggieName;
 })->whereIn('veggieName',['baigan','bhindi','aaloo','gobhi']);
-
-Route::get('/songs', function () {
+/*
+Route::get('/songs_static', function () {
     return "Songs";
 });
 
-Route::get('/songs', function () {
+Route::get('/songs_static', function () {
     return view('songs');
+});
+*/
+Route::get('/songs_static', function () {
+  $song1 = new Song();
+  $song1->setTitle("Stan");
+  $song1->setArtist("Eminem");
+
+  $song2 = new Song();
+  $song2->setTitle("New Song");
+  $song2->setArtist("Divyansh");
+
+  $song3 = new Song();
+  $song3->setTitle("With You");
+  $song3->setArtist("A P Dhillon");
+
+  return view('songs', [ 'songs' => [ $song1, $song2, $song3 ] ]); 
 });
 
 Route::get('/songs', function () {
-    $song1 = new Song();
-    $song1->setTitle("Stan");
-    $song1->setArtist("Eminem");
-  
-    $song2 = new Song();
-    $song2->setTitle("Nothing Else Matters");
-    $song2->setArtist("Metallica");
-  
-    $song3 = new Song();
-    $song3->setTitle("With You");
-    $song3->setArtist("A P Dhillon");
-  
-    return view('songs', [ 'songs' => [ $song1, $song2, $song3 ] ]); 
-  });
+    return view('songs', [ 'songs' => Song::all() ] );
+});
+
+Route::get('/songs_static', function () {
+    return view('songs_static');
+});
+?>
