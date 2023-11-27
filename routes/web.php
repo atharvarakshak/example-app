@@ -57,7 +57,7 @@ Route::get('/songs', function () {
 Route::get('/songs_static', function () {
     return view('songs_static');
 });
-Route::get('//playlists/{playlistId}', function () {
-    return view('/playlists/{playlistId}');
+Route::get('/playlists/{playlistId}', function (string $playlistId) {
+    return view('playlist',['songs'=>Song::all(),'playlistId'=>$playlistId]);
 });
 ?>
